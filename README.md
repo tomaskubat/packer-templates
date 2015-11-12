@@ -21,3 +21,8 @@ Build Vagrant Virtualbox Box
 ```
 $ packer build <TEMPLATE>.json
 ```
+
+Create Vagrant Boostrap (with Vagrantfile)
+------------------------------------------
+
+You can use one script guide [vagrant-bootstrap](https://github.com/tomaskubat/vagrant-bootstrap) 
