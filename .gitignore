@@ -1,0 +1,12 @@
+.idea
+
+output-virtualbox-iso/*
+output-vmware-iso/*
+packer_cache/*
+
+build/*
+!build/.gittouch
+
+*.vdi
+*.vmdk
+*.ovf
