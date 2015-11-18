@@ -40,13 +40,13 @@
     "type": "shell",
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
     "scripts": [
-      "scripts/yum.sh",
-      "scripts/vagrant.sh",
-      "scripts/vboxguest.sh",
-      "scripts/puppet.sh",
-      "scripts/network.sh",
-      "scripts/grub.sh",
-      "scripts/compact.sh"
+      "scripts/centos7/yum.sh",
+      "scripts/centos7/vagrant.sh",
+      "scripts/centos7/vboxguest.sh",
+      "scripts/centos7/puppet.sh",
+      "scripts/centos7/network.sh",
+      "scripts/centos7/grub.sh",
+      "scripts/centos7/compact.sh"
     ]
   }]
 }
