@@ -21,3 +21,6 @@ rpm -ivh ${REPO_URL} >/dev/null
 
 # Install Puppet agent package...
 yum install -y puppet-agent
+
+# Allow call Puppet by sudo
+echo "Defaults secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin" > /etc/sudoers.d/trust-puppetlabs-bin && chmod 440 /etc/sudoers.d/trust-puppetlabs-bin

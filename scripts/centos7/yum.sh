@@ -16,16 +16,9 @@ yum -y remove \
 # RPM Forge repository
 rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
 
-# EPEL repository
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-
-# WEBSTATIC repository (PHP 7 packages)
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-
+# Base Packages
 yum -y install \
     htop \
-    iftop \
     screen \
     mc
 

@@ -12,7 +12,7 @@
     "iso_checksum_type": "sha1",
 
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1.1503-x86_64/ks.cfg<enter><wait>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1.1503/ks.cfg<enter><wait>"
     ],
     "boot_wait": "4s",
 
@@ -32,7 +32,7 @@
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
   "post-processors": [{
-    "output": "build/Centos-7.1.1503-x86_64.box",
+    "output": "build/Centos-7.1.1503-vboxguest-5.0.10-puppet-4.3.0.box",
     "type": "vagrant",
     "only": ["virtualbox-iso"]
   }],
