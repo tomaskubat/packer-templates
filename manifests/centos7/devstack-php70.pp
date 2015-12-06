@@ -43,18 +43,20 @@ exec { 'permanently-enable-remi-php7-repository':
 ##################
 $packages = [
     'nginx',
-    'php70-php',
-    'php70-php-cli',
-    'php70-php-fpm',
-    'php70-php-pdo',
-    'php70-php-mysql',
-    'php70-php-mysqlnd',
-    'php70-php-curl',
-    'php70-php-gd',
-    'php70-php-mcrypt',
-    'php70-php-xmlrpc',
-    'php70-php-xdebug',
-    'php70-php-opcache',
+    'httpd',
+    'mod_ssl',
+    'php',
+    'php-cli',
+    'php-fpm',
+    'php-pdo',
+    'php-mysql',
+    'php-mysqlnd',
+    'php-curl',
+    'php-gd',
+    'php-mcrypt',
+    'php-xmlrpc',
+    'php-xdebug',
+    'php-opcache',
     'MariaDB-server',
     'MariaDB-client',
 ]
@@ -65,20 +67,28 @@ package { $packages:
 # Setup Nginx 1.9.x
 ###################
 service { 'nginx':
-    ensure => running,
-    enable => true,
+    ensure => stopped,
+    enable => false,
 }
 
 # Setup PHP 7.0
 ###################
-service { 'php70-php-fpm':
-    ensure => running,
-    enable => true,
+service { 'php-fpm':
+    ensure => stopped,
+    enable => false,
 }
 
-file { '/etc/profile.d/php70.sh':
+file { '/etc/php.d/15-xdebug.ini':
     ensure => 'present',
-    content =>'alias php="php70"',
+    content =>
+        '; Enable xdebug extension module
+        ; see http://xdebug.org/docs/all_settings
+        zend_extension=xdebug.so
+        xdebug.remote_enable = 1
+        xdebug.idekey = "PHPSTORM"
+        xdebug.remote_host = "10.0.2.2"
+        xdebug.profiler_enable_trigger = 1
+        xdebug.profiler_output_dir = "/tmp"',
 }
 
 # Setup MariaDB 10.1
