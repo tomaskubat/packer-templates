@@ -26,11 +26,16 @@ Availabled Boxes Templates and Builds
   - Installed: Development Tools group, kernel-devel, mc, htop, iftop
   - Removed: selinux* tuned smartmontools polkit lvm2 lvm2-libs
   
-+ [Centos-7.2.1511-vboxguest-5.0.10-puppet-4.3.1-devstack-php70.box](http://boxes.tomaskubat.cz/Centos-7.2.1511-vboxguest-5.0.10-puppet-4.3.1-devstack-php70.box)
-  - Vboxguest 5.0.10
-  - Puppet agent 4.3.1
-  - **Devstack**: Nginx 1.9.9, MariaDB Server and Client 10.1.10, PHP and PHP-FPM and CLI 7.0.1. Nginx, Apache and PHP-FPM services are disabled as default. (For details look at `manifests/centos7/devstack-php70.pp`)
++ [Centos-7.2.1511-vboxguest-5.0.14-puppet-4.3.x-devstack-php70.box](http://boxes.tomaskubat.cz/Centos-7.2.1511-vboxguest-5.0.14-puppet-4.3.x-devstack-php70.box)
+  - Vboxguest 5.0.14
+  - Puppet agent 4.3.2
+  - **Devstack**: Nginx 1.9.10, MariaDB Server and Client 10.1.11, PHP and PHP-FPM and CLI 7.0.2. Nginx, Apache and PHP-FPM services are disabled as default. (For details look at `manifests/centos7/devstack-php70.pp`)
   - Installed: Development Tools group, kernel-devel, mc, htop, iftop, dovecot
+  - Removed: selinux* tuned smartmontools polkit lvm2 lvm2-libs
+  
++ [Centos-7.2.1511-vboxguest-5.0.14-puppet-4.3.x.box](http://boxes.tomaskubat.cz/Centos-7.2.1511-vboxguest-5.0.14-puppet-4.3.x.box)
+  - Vboxguest 5.0.14
+  - Puppet agent 4.3.2
   - Removed: selinux* tuned smartmontools polkit lvm2 lvm2-libs
   
 Requirements
