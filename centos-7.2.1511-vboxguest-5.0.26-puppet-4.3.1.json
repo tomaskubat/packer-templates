@@ -32,7 +32,7 @@
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
   "post-processors": [{
-    "output": "build/Centos-7.2.1511-vboxguest-5.0.18-puppet-4.3.1.box",
+    "output": "build/Centos-7.2.1511-vboxguest-5.0.26-puppet-4.3.1.box",
     "type": "vagrant",
     "only": ["virtualbox-iso"]
   }],
