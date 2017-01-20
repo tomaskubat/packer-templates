@@ -7,12 +7,12 @@
     "guest_os_type": "RedHat_64",
     "disk_size": 80960,
 
-    "iso_url": "http://mirror.karneval.cz/pub/centos/7.1.1503/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
-    "iso_checksum": "7c1e34e95c991175290d704dbdcc6531774cbecb",
+    "iso_url": "http://mirror.karneval.cz/pub/centos/7.3.1611/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso",
+    "iso_checksum": "71a7aa147877b413497cdff5b1e0aa5bc0c9484f",
     "iso_checksum_type": "sha1",
 
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.1.1503/ks.cfg<enter><wait>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.3.1611/ks-without-swap.cfg<enter><wait>"
     ],
     "boot_wait": "4s",
 
@@ -32,7 +32,7 @@
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
   "post-processors": [{
-    "output": "build/Centos-7.1.1503-vboxguest-5.0.10-puppet-4.3.1.box",
+    "output": "build/Centos-7.3.1611-vboxguest-5.0.32.box",
     "type": "vagrant",
     "only": ["virtualbox-iso"]
   }],
@@ -40,10 +40,10 @@
     "type": "shell",
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
     "scripts": [
-      "scripts/centos7/yum.sh",
+      "scripts/centos7/yum-remove.sh",
+      "scripts/centos7/yum-update.sh",
       "scripts/centos7/vagrant.sh",
       "scripts/centos7/vboxguest.sh",
-      "scripts/centos7/puppet.sh",
       "scripts/centos7/network.sh",
       "scripts/centos7/grub.sh",
       "scripts/centos7/compact.sh"
