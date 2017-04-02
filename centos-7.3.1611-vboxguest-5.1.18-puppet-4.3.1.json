@@ -12,7 +12,7 @@
     "iso_checksum_type": "sha1",
 
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.3.1611/ks-without-swap.cfg<enter><wait>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7.3.1611/ks.cfg<enter><wait>"
     ],
     "boot_wait": "4s",
 
@@ -25,14 +25,14 @@
     "ssh_wait_timeout": "10000s",
 
     "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", "1024"],
-      ["modifyvm", "{{.Name}}", "--cpus", "2"]
+      ["modifyvm", "{{.Name}}", "--memory", "2048"],
+      ["modifyvm", "{{.Name}}", "--cpus", "3"]
     ],
 
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
   "post-processors": [{
-    "output": "build/Centos-7.3.1611-vboxguest-5.0.32.box",
+    "output": "build/Centos-7.3.1611-vboxguest-5.1.18-puppet-4.3.1.box",
     "type": "vagrant",
     "only": ["virtualbox-iso"]
   }],
@@ -41,9 +41,11 @@
     "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
     "scripts": [
       "scripts/centos7/yum-remove.sh",
+      "scripts/centos7/yum-install.sh",
       "scripts/centos7/yum-update.sh",
       "scripts/centos7/vagrant.sh",
       "scripts/centos7/vboxguest.sh",
+      "scripts/centos7/puppet.sh",
       "scripts/centos7/network.sh",
       "scripts/centos7/grub.sh",
       "scripts/centos7/compact.sh"
