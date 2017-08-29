@@ -32,7 +32,7 @@
     "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
   "post-processors": [{
-    "output": "build/Centos-7.3.1611-vboxguest-5.1.18-puppet-4.3.1.box",
+    "output": "build/Centos-7.3.1611-vboxguest-5.1.26-puppet-4.3.1-devstack-php71.box",
     "type": "vagrant",
     "only": ["virtualbox-iso"]
   }],
@@ -50,6 +50,10 @@
       "scripts/centos7/grub.sh",
       "scripts/centos7/compact.sh"
     ]
+  },
+  {
+    "type": "puppet-masterless",
+    "manifest_file": "manifests/centos7/devstack-php71.pp"
   }]
 }
 
